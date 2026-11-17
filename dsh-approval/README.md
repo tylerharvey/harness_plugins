@@ -15,9 +15,9 @@ Default path: `$DSH_HOME/auto-approve-workspaces.json` (on a stock install, `~/.
 ```json
 {
   "workspaces": [
-    "/home/trh/Packages/opencode_instructions",
+    "/home/trh/Packages/agent_instructions",
     "/home/trh/Packages/opencode_artifacts",
-    "/home/trh/Packages/opencode_plugins"
+    "/home/trh/Packages/agent_plugins"
   ]
 }
 ```
@@ -67,7 +67,7 @@ A relative `file_path` is resolved against `ctx.workingDirectory`; without that 
 From this checkout, the bundle is a linked local package. Install it into a profile with the plugin manager (`install_bundle`, target = this directory) or the CLI:
 
 ```sh
-dsh plugin --profile web add /home/trh/Packages/opencode_plugins/dsh-approval
+dsh plugin --profile web add /home/trh/Packages/agent_plugins/dsh-approval
 dsh plugin --profile web remove dsh-approval-workspaces
 ```
 
@@ -79,7 +79,7 @@ Link from inside the profile so every stored path is profile-relative:
 
 ```sh
 mkdir -p ~/.dsh/profiles/web/local-plugins
-ln -s /home/trh/Packages/opencode_plugins/dsh-approval ~/.dsh/profiles/web/local-plugins/dsh-approval
+ln -s /home/trh/Packages/agent_plugins/dsh-approval ~/.dsh/profiles/web/local-plugins/dsh-approval
 ```
 
 Set the dependency to `"dsh-approval-workspaces": "link:./local-plugins/dsh-approval"`, run `pnpm install --lockfile-only` in the profile (it records `version: link:local-plugins/dsh-approval`), link `node_modules/dsh-approval-workspaces -> ../local-plugins/dsh-approval`, and select the bundle with the Plugin Manager (`set_bundle`). The absolute target lives only in the profile-local symlink, which is identical on both sides.

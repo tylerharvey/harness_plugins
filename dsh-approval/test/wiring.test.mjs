@@ -5,10 +5,10 @@
  */
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { apply } from '/home/trh/Packages/opencode_plugins/dsh-approval/index.js'
-import { canonicalPath } from '/home/trh/Packages/opencode_plugins/dsh-approval/logic.js'
+import { apply } from '/home/trh/Packages/agent_plugins/dsh-approval/index.js'
+import { canonicalPath } from '/home/trh/Packages/agent_plugins/dsh-approval/logic.js'
 
-const WORKSPACES = '/home/trh/Packages/opencode_plugins'
+const WORKSPACES = '/home/trh/Packages/agent_plugins'
 const SESSION = { id: 'session-test' }
 const AGENT = { session: SESSION }
 
